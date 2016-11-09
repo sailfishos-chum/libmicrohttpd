@@ -1,7 +1,7 @@
 Summary: GNU libmicrohttpd is a small C library that is supposed to make it easy to run an HTTP server as part of another application
 Name: libmicrohttpd
 Version: 0.9.50
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: GNU LGPL v2.1
 Group: Libraries/Databases
 URL: https://www.gnu.org/software/libmicrohttpd/
@@ -38,9 +38,14 @@ supposed to make it easy to run an HTTP server as part of another
 application.  This package provides documentation
 
 %prep
+
 %setup
 
 %build
+
+%{__make} clean
+
+CFLAGS="-fPIC -O2"
 %configure --disable-shared --enable-static
 
 %{__make} %{?_smp_mflags}
@@ -57,6 +62,7 @@ application.  This package provides documentation
 %post
 
 %files
+#%{_libdir}/libmicrohttpd.so*
 
 %files doc
 %defattr(-, root, root, 0755)
