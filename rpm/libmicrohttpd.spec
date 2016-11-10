@@ -45,7 +45,8 @@ application.  This package provides documentation
 
 %{__make} clean
 
-CFLAGS="-fPIC -O2"
+CFLAGS="$CFLAGS -fPIC"
+CXXFLAGS="$CXXFLAGS -fPIC"
 %configure --disable-shared --enable-static
 
 %{__make} %{?_smp_mflags}
