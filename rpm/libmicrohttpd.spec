@@ -43,7 +43,7 @@ application.  This package provides documentation
 
 %build
 
-%{__make} clean
+%{__make} clean || true
 
 CFLAGS="$CFLAGS -fPIC"
 CXXFLAGS="$CXXFLAGS -fPIC"
