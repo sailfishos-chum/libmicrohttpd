@@ -39,9 +39,9 @@ application.  This package provides documentation
 
 %prep
 
-%setup
+%setup -q -n %{name}-%{version}/libmicrohttpd
 
-%build -q -n %{name}-%{version}/libmicrohttpd
+%build 
 
 %{__make} clean || true
 
