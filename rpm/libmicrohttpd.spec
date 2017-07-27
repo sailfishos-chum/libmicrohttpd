@@ -1,4 +1,4 @@
-Summary: GNU libmicrohttpd is a small C library that is supposed to make it easy to run an HTTP server as part of another application
+Summary: library for adding an HTTP server as part of another application
 Name: libmicrohttpd
 Version: 0.9.55
 Release: 2%{?dist}
@@ -71,9 +71,6 @@ CXXFLAGS="$CXXFLAGS -fPIC"
 
 %files doc
 %defattr(-, root, root, 0755)
-#%exclude %{_infodir}/dir
-#%{_infodir}/libmicrohttpd-tutorial.info.gz
-#%{_infodir}/libmicrohttpd.info.gz
 %{_mandir}/man3/libmicrohttpd.3.gz
 
 %files devel
