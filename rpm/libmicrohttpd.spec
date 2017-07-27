@@ -3,7 +3,7 @@ Name: libmicrohttpd
 Version: 0.9.55
 Release: 2%{?dist}
 License: GNU LGPL v2.1
-Group: Libraries/Databases
+Group: Development/Libraries
 URL: https://www.gnu.org/software/libmicrohttpd/
 
 Source: http://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-%{version}.tar.gz
