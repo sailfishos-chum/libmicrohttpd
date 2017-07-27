@@ -9,7 +9,7 @@ URL: https://www.gnu.org/software/libmicrohttpd/
 Source: http://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
-BuildRequires: gcc-c++
+BuildRequires: gcc-c++ libtool
 #Requires: pango
 
 %description
@@ -44,6 +44,8 @@ application.  This package provides documentation
 %build 
 
 %{__make} clean || true
+
+./bootstrap
 
 CFLAGS="$CFLAGS -fPIC"
 CXXFLAGS="$CXXFLAGS -fPIC"
