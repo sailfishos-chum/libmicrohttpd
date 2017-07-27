@@ -56,6 +56,7 @@ CXXFLAGS="$CXXFLAGS -fPIC"
 %install
 %{__rm} -rf %{buildroot}
 %{__make} install DESTDIR=%{buildroot}
+%{__rm} -rf %{buildroot}%{_infodir}/dir || true
 
 %clean
 %{__rm} -rf %{buildroot}
@@ -64,7 +65,7 @@ CXXFLAGS="$CXXFLAGS -fPIC"
 
 %post
 
-%files
+#%files
 #%{_libdir}/libmicrohttpd.so*
 
 %files doc
