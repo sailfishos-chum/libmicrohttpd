@@ -57,6 +57,7 @@ CXXFLAGS="$CXXFLAGS -fPIC"
 %{__rm} -rf %{buildroot}
 %{__make} install DESTDIR=%{buildroot}
 %{__rm} -rf %{buildroot}%{_infodir}/dir || true
+%{__rm} -rf %{buildroot}%{_infodir}/libmicrohttpd* || true
 
 %clean
 %{__rm} -rf %{buildroot}
@@ -71,8 +72,8 @@ CXXFLAGS="$CXXFLAGS -fPIC"
 %files doc
 %defattr(-, root, root, 0755)
 #%exclude %{_infodir}/dir
-%{_infodir}/libmicrohttpd-tutorial.info.gz
-%{_infodir}/libmicrohttpd.info.gz
+#%{_infodir}/libmicrohttpd-tutorial.info.gz
+#%{_infodir}/libmicrohttpd.info.gz
 %{_mandir}/man3/libmicrohttpd.3.gz
 
 %files devel
