@@ -9,7 +9,7 @@ URL: https://www.gnu.org/software/libmicrohttpd/
 Source: http://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
-BuildRequires: gcc-c++ libtool
+BuildRequires: gcc-c++ libtool texinfo
 #Requires: pango
 
 %description
