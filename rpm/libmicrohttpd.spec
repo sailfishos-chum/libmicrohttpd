@@ -69,7 +69,7 @@ CXXFLAGS="$CXXFLAGS -fPIC"
 
 %files doc
 %defattr(-, root, root, 0755)
-%exclude %{_infodir}/dir
+#%exclude %{_infodir}/dir
 %{_infodir}/libmicrohttpd-tutorial.info.gz
 %{_infodir}/libmicrohttpd.info.gz
 %{_mandir}/man3/libmicrohttpd.3.gz
