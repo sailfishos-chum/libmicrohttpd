@@ -1,6 +1,6 @@
 Summary: library for adding an HTTP server as part of another application
 Name: libmicrohttpd
-Version: 0.9.73
+Version: 0.9.75
 Release: 1%{?dist}
 License: GNU LGPL v2.1
 Group: Development/Libraries
@@ -16,6 +16,10 @@ BuildRequires: gcc-c++ libtool texinfo
 GNU libmicrohttpd is a small C library that is supposed
 to make it easy to run an HTTP server as part of another application.
 
+PackageName: libmicrohttpd
+Custom:
+  Repo: https://github.com/sailfishos-chum/libmicrohttpd
+
 %package devel
 Summary: libmicrohttpd development headers and static library
 Group: Development/Libraries
@@ -27,6 +31,10 @@ supposed to make it easy to run an HTTP server as part of another
 application.  This package provides libraries and headers for
 development
 
+PackageName: libmicrohttpd Development
+Custom:
+  Repo: https://github.com/sailfishos-chum/libmicrohttpd
+
 %package doc
 Summary: libmicrohttpd documentation
 Group: Development/Libraries
@@ -36,6 +44,10 @@ Group: Development/Libraries
 GNU libmicrohttpd is a small C library that is
 supposed to make it easy to run an HTTP server as part of another
 application.  This package provides documentation
+
+PackageName: libmicrohttpd Documentation
+Custom:
+  Repo: https://github.com/sailfishos-chum/libmicrohttpd
 
 %prep
 
