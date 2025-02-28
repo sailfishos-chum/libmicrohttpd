@@ -57,6 +57,7 @@ CXXFLAGS="$CXXFLAGS -fPIC"
 %{__rm} -rf %{buildroot}%{_infodir}/dir || true
 %{__rm} -rf %{buildroot}%{_infodir}/libmicrohttpd* || true
 %{__rm} -rf %{buildroot}%{_mandir}/* || true
+%{__rm} -rf %{buildroot}%{_libdir}/libmicrohttpd.la || true
 
 %clean
 %{__rm} -rf %{buildroot}
@@ -72,7 +73,6 @@ CXXFLAGS="$CXXFLAGS -fPIC"
 %defattr(-, root, root, 0755)
 %{_includedir}/microhttpd.h
 %{_libdir}/libmicrohttpd.a
-%{_libdir}/libmicrohttpd.la
 %{_libdir}/pkgconfig/libmicrohttpd.pc
 
 %changelog
