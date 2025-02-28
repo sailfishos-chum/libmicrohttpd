@@ -1,6 +1,6 @@
 Summary: library for adding an HTTP server as part of another application
 Name: libmicrohttpd
-Version: 0.9.75
+Version: 0.9.77
 Release: 1%{?dist}
 License: GNU LGPL v2.1
 Group: Development/Libraries
