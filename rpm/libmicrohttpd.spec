@@ -23,6 +23,8 @@ Custom:
 %package devel
 Summary: libmicrohttpd development headers and static library
 Group: Development/Libraries
+# fedora guidelines for static-only devel package:
+Provides: %{name}-static
 #Requires: %%{name} = %%{version}
 
 %description devel
