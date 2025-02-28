@@ -1,5 +1,8 @@
-Summary: library for adding an HTTP server as part of another application
 Name: libmicrohttpd
+
+%define keepstatic 1
+
+Summary: library for adding an HTTP server as part of another application
 Version: 0.9.77
 Release: 1%{?dist}
 License: GNU LGPL v2.1
