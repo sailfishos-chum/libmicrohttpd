@@ -35,20 +35,6 @@ PackageName: libmicrohttpd Development
 Custom:
   Repo: https://github.com/sailfishos-chum/libmicrohttpd
 
-%package doc
-Summary: libmicrohttpd documentation
-Group: Development/Libraries
-#Requires: %{name} = %{version}
-
-%description doc
-GNU libmicrohttpd is a small C library that is
-supposed to make it easy to run an HTTP server as part of another
-application.  This package provides documentation
-
-PackageName: libmicrohttpd Documentation
-Custom:
-  Repo: https://github.com/sailfishos-chum/libmicrohttpd
-
 %prep
 
 %setup -q -n %{name}-%{version}/libmicrohttpd
@@ -70,6 +56,7 @@ CXXFLAGS="$CXXFLAGS -fPIC"
 %{__make} install DESTDIR=%{buildroot}
 %{__rm} -rf %{buildroot}%{_infodir}/dir || true
 %{__rm} -rf %{buildroot}%{_infodir}/libmicrohttpd* || true
+%{__rm} -rf %{buildroot}%{_mandir}/* || true
 
 %clean
 %{__rm} -rf %{buildroot}
@@ -80,10 +67,6 @@ CXXFLAGS="$CXXFLAGS -fPIC"
 
 #%files
 #%{_libdir}/libmicrohttpd.so*
-
-%files doc
-%defattr(-, root, root, 0755)
-%{_mandir}/man3/libmicrohttpd.3.gz
 
 %files devel
 %defattr(-, root, root, 0755)
