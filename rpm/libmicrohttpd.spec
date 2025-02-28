@@ -23,7 +23,7 @@ Custom:
 %package devel
 Summary: libmicrohttpd development headers and static library
 Group: Development/Libraries
-#Requires: %{name} = %{version}
+#Requires: %%{name} = %%{version}
 
 %description devel
 GNU libmicrohttpd is a small C library that is
@@ -49,28 +49,19 @@ CFLAGS="$CFLAGS -fPIC"
 CXXFLAGS="$CXXFLAGS -fPIC"
 %configure --disable-shared --enable-static
 
-%{__make} %{?_smp_mflags}
+%{make_build}
 
 %install
-%{__rm} -rf %{buildroot}
-%{__make} install DESTDIR=%{buildroot}
+%{make_install}
 %{__rm} -rf %{buildroot}%{_infodir}/dir || true
 %{__rm} -rf %{buildroot}%{_infodir}/libmicrohttpd* || true
 %{__rm} -rf %{buildroot}%{_mandir}/* || true
 %{__rm} -rf %{buildroot}%{_libdir}/libmicrohttpd.la || true
 
-%clean
-%{__rm} -rf %{buildroot}
-
-%pre
-
-%post
-
-#%files
-#%{_libdir}/libmicrohttpd.so*
+#%%files
+#%%{_libdir}/libmicrohttpd.so*
 
 %files devel
-%defattr(-, root, root, 0755)
 %{_includedir}/microhttpd.h
 %{_libdir}/libmicrohttpd.a
 %{_libdir}/pkgconfig/libmicrohttpd.pc
