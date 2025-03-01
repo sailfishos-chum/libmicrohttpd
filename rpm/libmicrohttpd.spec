@@ -1,6 +1,9 @@
-Summary: library for adding an HTTP server as part of another application
 Name: libmicrohttpd
-Version: 0.9.75
+
+%define keepstatic 1
+
+Summary: library for adding an HTTP server as part of another application
+Version: 0.9.77
 Release: 1%{?dist}
 License: GNU LGPL v2.1
 Group: Development/Libraries
@@ -23,7 +26,9 @@ Custom:
 %package devel
 Summary: libmicrohttpd development headers and static library
 Group: Development/Libraries
-#Requires: %{name} = %{version}
+# fedora guidelines for static-only devel package:
+Provides: %{name}-static
+#Requires: %%{name} = %%{version}
 
 %description devel
 GNU libmicrohttpd is a small C library that is
@@ -32,20 +37,6 @@ application.  This package provides libraries and headers for
 development
 
 PackageName: libmicrohttpd Development
-Custom:
-  Repo: https://github.com/sailfishos-chum/libmicrohttpd
-
-%package doc
-Summary: libmicrohttpd documentation
-Group: Development/Libraries
-#Requires: %{name} = %{version}
-
-%description doc
-GNU libmicrohttpd is a small C library that is
-supposed to make it easy to run an HTTP server as part of another
-application.  This package provides documentation
-
-PackageName: libmicrohttpd Documentation
 Custom:
   Repo: https://github.com/sailfishos-chum/libmicrohttpd
 
@@ -63,33 +54,21 @@ CFLAGS="$CFLAGS -fPIC"
 CXXFLAGS="$CXXFLAGS -fPIC"
 %configure --disable-shared --enable-static
 
-%{__make} %{?_smp_mflags}
+%{make_build}
 
 %install
-%{__rm} -rf %{buildroot}
-%{__make} install DESTDIR=%{buildroot}
+%{make_install}
 %{__rm} -rf %{buildroot}%{_infodir}/dir || true
 %{__rm} -rf %{buildroot}%{_infodir}/libmicrohttpd* || true
+%{__rm} -rf %{buildroot}%{_mandir}/* || true
+%{__rm} -rf %{buildroot}%{_libdir}/libmicrohttpd.la || true
 
-%clean
-%{__rm} -rf %{buildroot}
-
-%pre
-
-%post
-
-#%files
-#%{_libdir}/libmicrohttpd.so*
-
-%files doc
-%defattr(-, root, root, 0755)
-%{_mandir}/man3/libmicrohttpd.3.gz
+#%%files
+#%%{_libdir}/libmicrohttpd.so*
 
 %files devel
-%defattr(-, root, root, 0755)
 %{_includedir}/microhttpd.h
 %{_libdir}/libmicrohttpd.a
-%{_libdir}/libmicrohttpd.la
 %{_libdir}/pkgconfig/libmicrohttpd.pc
 
 %changelog
